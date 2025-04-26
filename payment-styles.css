@@ -1,0 +1,73 @@
+/* Adicionando estilos para os botões de pagamento */
+.payment-buttons {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.payment-button {
+    background-color: #f8f9fa;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.payment-button:hover {
+    background-color: var(--accent-color);
+    border-color: var(--primary-color);
+}
+
+#mercadopago-button {
+    background-color: #009ee3;
+    color: white;
+}
+
+#mercadopago-button:hover {
+    background-color: #007eb5;
+}
+
+#pagseguro-button {
+    background-color: #4dc156;
+    color: white;
+}
+
+#pagseguro-button:hover {
+    background-color: #3da044;
+}
+
+#pix-button {
+    background-color: #32bcad;
+    color: white;
+}
+
+#pix-button:hover {
+    background-color: #289e91;
+}
+
+#boleto-button {
+    background-color: #ff7e00;
+    color: white;
+}
+
+#boleto-button:hover {
+    background-color: #e06d00;
+}
+
+/* Ajustes responsivos para os botões de pagamento */
+@media (max-width: 768px) {
+    .payment-buttons {
+        flex-direction: column;
+    }
+    
+    .payment-button {
+        width: 100%;
+    }
+}

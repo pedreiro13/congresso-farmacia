@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1º CONGRESSO DE CIÊNCIAS FARMACÊUTICAS - Inscrição</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="payment-styles.css">
+    <link rel="stylesheet" href="price-styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>1º CONGRESSO DE CIÊNCIAS FARMACÊUTICAS</h1>
+            <h2>Formulário de Inscrição</h2>
+        </header>
+
+        <!-- Formulário com integração ao Google Sheets -->
+        <form id="inscricao-form" method="POST">
+            <section class="form-section">
+                <h3>Informações Pessoais</h3>
+                <div class="form-group">
+                    <label for="nome">Nome Completo*</label>
+                    <input type="text" id="nome" name="Nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail*</label>
+                    <input type="email" id="email" name="Email" required>
+                </div>
+                
+                <div class="price-info">
+                    <p>Valor da inscrição: <span id="valor-inscricao">R$ 100,00</span></p>
+                    <p id="info-desconto" class="discount-info">Desconto aplicado! Você é aluno da turma organizadora.</p>
+                </div>
+            </section>
+
+            <section class="form-section">
+                <h3>Forma de Pagamento</h3>
+                <div class="payment-options">
+                    <div class="payment-option">
+                        <input type="radio" id="pix" name="Pagamento" value="pix">
+                        <label for="pix">PIX</label>
+                    </div>
+                    <div class="payment-option">
+                        <input type="radio" id="cartao" name="Pagamento" value="cartao">
+                        <label for="cartao">Cartão de Débito/Crédito</label>
+                    </div>
+                    <div class="payment-option">
+                        <input type="radio" id="boleto" name="Pagamento" value="boleto">
+                        <label for="boleto">Boleto Bancário</label>
+                    </div>
+                </div>
+
+                <!-- Campos específicos para PIX -->
+                <div id="pix-fields" class="payment-fields">
+                    <div class="info-box">
+                        <p>Após a confirmação da inscrição, você receberá um QR Code para pagamento via PIX.</p>
+                    </div>
+                    <div class="payment-buttons">
+                        <button type="button" id="pix-button" class="payment-button">Gerar QR Code PIX (R$ 100,00)</button>
+                    </div>
+                </div>
+
+                <!-- Campos específicos para Cartão -->
+                <div id="cartao-fields" class="payment-fields">
+                    <div class="form-group">
+                        <label for="numero-cartao">Número do Cartão*</label>
+                        <input type="text" id="numero-cartao" name="NumeroCartao" placeholder="0000 0000 0000 0000">
+                    </div>
+                    <div class="form-group">
+                        <label for="nome-cartao">Nome no Cartão*</label>
+                        <input type="text" id="nome-cartao" name="NomeCartao">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label for="validade">Data de Validade*</label>
+                            <input type="text" id="validade" name="Validade" placeholder="MM/AA">
+                        </div>
+                        <div class="form-group half">
+                            <label for="cvv">CVV*</label>
+                            <input type="text" id="cvv" name="CVV" placeholder="123">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="tipo-cartao">Tipo de Cartão*</label>
+                        <select id="tipo-cartao" name="TipoCartao">
+                            <option value="">Selecione</option>
+                            <option value="credito">Crédito</option>
+                            <option value="debito">Débito</option>
+                        </select>
+                    </div>
+                    <div id="parcelas-container" class="form-group">
+                        <label for="parcelas">Parcelas*</label>
+                        <select id="parcelas" name="Parcelas">
+                            <option value="1">1x sem juros</option>
+                            <option value="2">2x sem juros</option>
+                            <option value="3">3x sem juros</option>
+                        </select>
+                    </div>
+                    <div class="payment-buttons">
+                        <button type="button" id="mercadopago-button" class="payment-button">Pagar com MercadoPago (R$ 100,00)</button>
+                        <button type="button" id="pagseguro-button" class="payment-button">Pagar com PagSeguro (R$ 100,00)</button>
+                    </div>
+                </div>
+
+                <!-- Campos específicos para Boleto -->
+                <div id="boleto-fields" class="payment-fields">
+                    <div class="info-box">
+                        <p>O boleto será gerado após a confirmação da inscrição e enviado para o seu e-mail.</p>
+                        <p>O prazo para pagamento é de 3 dias úteis.</p>
+                    </div>
+                    <div class="payment-buttons">
+                        <button type="button" id="boleto-button" class="payment-button">Gerar Boleto (R$ 100,00)</button>
+                    </div>
+                </div>
+            </section>
+
+            <div class="form-actions">
+                <button type="submit" id="submit-btn">Confirmar Inscrição</button>
+            </div>
+        </form>
+
+        <div id="confirmation" class="hidden">
+            <h3>Inscrição Realizada com Sucesso!</h3>
+            <p>Obrigado por se inscrever no 1º CONGRESSO DE CIÊNCIAS FARMACÊUTICAS.</p>
+            <p>Um e-mail de confirmação foi enviado para o endereço fornecido com todas as informações sobre o pagamento e o evento.</p>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 - 1º CONGRESSO DE CIÊNCIAS FARMACÊUTICAS. Todos os direitos reservados.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
